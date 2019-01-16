@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^23.3.12",
     "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
     "prettier": "^1.15.3",
     "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
@@ -16,8 +18,10 @@
   },
   "scripts": {
     "knex": "ts-node node_modules/knex/bin/cli.js",
-    "test": "jest",
-    "migrate": "yarn knex migrate:latest"
+    "test": "jest --runInBand",
+    "migrate": "yarn knex migrate:latest",
+    "seed": "yarn knex seed:run",
+    "rollback": "yarn knex migrate:rollback"
   },
   "prettier": {
     "singleQuote": true,
